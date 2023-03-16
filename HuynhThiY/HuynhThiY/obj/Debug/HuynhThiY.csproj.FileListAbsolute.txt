@@ -77,3 +77,7 @@ D:\HuynhThiY ASP.NET\HuynhThiY\HuynhThiY\obj\Debug\HuynhThiY.csproj.CoreCompileI
 D:\HuynhThiY ASP.NET\HuynhThiY\HuynhThiY\obj\Debug\HuynhThiY.csproj.CopyComplete
 D:\HuynhThiY ASP.NET\HuynhThiY\HuynhThiY\obj\Debug\HuynhThiY.dll
 D:\HuynhThiY ASP.NET\HuynhThiY\HuynhThiY\obj\Debug\HuynhThiY.pdb
+D:\HuynhThiY ASP.NET\HuynhThiY\HuynhThiY\bin\EntityFramework.dll
+D:\HuynhThiY ASP.NET\HuynhThiY\HuynhThiY\bin\EntityFramework.SqlServer.dll
+D:\HuynhThiY ASP.NET\HuynhThiY\HuynhThiY\bin\EntityFramework.xml
+D:\HuynhThiY ASP.NET\HuynhThiY\HuynhThiY\bin\EntityFramework.SqlServer.xml
