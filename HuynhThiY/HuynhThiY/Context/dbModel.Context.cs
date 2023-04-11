@@ -13,10 +13,10 @@ namespace HuynhThiY.Context
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class WebBanHangEntities1 : DbContext
+    public partial class webBanhangEntities : DbContext
     {
-        public WebBanHangEntities1()
-            : base("name=WebBanHangEntities1")
+        public webBanhangEntities()
+            : base("name=webBanhangEntities")
         {
         }
     
@@ -25,10 +25,10 @@ namespace HuynhThiY.Context
             throw new UnintentionalCodeFirstException();
         }
     
+        public virtual DbSet<Brand> Brands { get; set; }
         public virtual DbSet<Category> Categories { get; set; }
         public virtual DbSet<Order> Orders { get; set; }
-        public virtual DbSet<product> products { get; set; }
+        public virtual DbSet<Product> Products { get; set; }
         public virtual DbSet<User> Users { get; set; }
-        public virtual DbSet<Brand> Brands { get; set; }
     }
 }

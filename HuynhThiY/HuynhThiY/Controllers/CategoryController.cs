@@ -4,23 +4,26 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.UI.WebControls;
 
 namespace HuynhThiY.Controllers
 {
     public class CategoryController : Controller
     {
-        WebBanHangEntities1 objWebBanHangEntities1 = new WebBanHangEntities1();
+        webBanhangEntities objwebBanhangEntities = new webBanhangEntities();
         // GET: Category
         public ActionResult Index()
         {
-            var lstCategory = objWebBanHangEntities1.Categories.ToList();
+            var lstCategory = objwebBanhangEntities.Categories.ToList();
             return View(lstCategory);
         }
+
         public ActionResult ProductCategory(int Id)
         {
-            var ListProduct = objWebBanHangEntities1.products.Where(n => n.CategoryId == Id).ToList();
-
-            return View(ListProduct);
+            var listProduct = objwebBanhangEntities.Products.Where(n=>n.CategoryId==Id).ToList();
+            return View(listProduct);
         }
     }
+
+    
 }

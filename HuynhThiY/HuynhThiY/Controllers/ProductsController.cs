@@ -9,12 +9,12 @@ namespace HuynhThiY.Controllers
 {
     public class ProductsController : Controller
     {
-        WebBanHangEntities1 objWebBanHangEntities1 = new WebBanHangEntities1();
+        webBanhangEntities objwebBanhangEntities = new webBanhangEntities();
         // GET: Products
         public ActionResult Index(int Id)
         {
-            var lstProduct = objWebBanHangEntities1.products.Where(n => n.id == Id).FirstOrDefault();
-            return View(lstProduct);
+            var objProduct = objwebBanhangEntities.Products.Where(n=>n.Id == Id).FirstOrDefault();
+            return View(objProduct);
         }
     }
 }

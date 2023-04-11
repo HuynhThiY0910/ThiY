@@ -19,9 +19,9 @@ namespace HuynhThiY.Context
         public string Avatar { get; set; }
         public string Slug { get; set; }
         public Nullable<bool> ShowOnHomePage { get; set; }
-        public Nullable<int> DisplayOrder { get; set; }
-        public Nullable<System.DateTime> CreatedOnUtc { get; set; }
-        public Nullable<System.DateTime> UpdatedOnUtc { get; set; }
+        public Nullable<int> DiscplayOrder { get; set; }
+        public Nullable<System.DateTime> CreatedOnUct { get; set; }
+        public Nullable<System.DateTime> UpdatedOnUct { get; set; }
         public Nullable<bool> Deleted { get; set; }
     }
 }

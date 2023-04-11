@@ -4,21 +4,19 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="WebBanHangModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'WebBanHang.dbo.Brand' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+      <Schema Namespace="webBanhangModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Brand">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Name" Type="nvarchar" MaxLength="100" />
-          <Property Name="Avatar" Type="nvarchar" MaxLength="100" />
-          <Property Name="Slug" Type="varchar" MaxLength="100" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="Avatar" Type="nvarchar" MaxLength="50" />
+          <Property Name="Slug" Type="varchar" MaxLength="50" />
           <Property Name="ShowOnHomePage" Type="bit" />
-          <Property Name="DisplayOrder" Type="int" />
-          <Property Name="CreatedOnUtc" Type="datetime" />
-          <Property Name="UpdatedOnUtc" Type="datetime" />
+          <Property Name="DiscplayOrder" Type="int" />
+          <Property Name="CreatedOnUct" Type="datetime" />
+          <Property Name="UpdatedOnUct" Type="datetime" />
           <Property Name="Deleted" Type="bit" />
         </EntityType>
         <EntityType Name="Category">
@@ -26,36 +24,36 @@ warning 6002: The table/view 'WebBanHang.dbo.Brand' does not have a primary key 
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Name" Type="nvarchar" MaxLength="100" />
-          <Property Name="Avartar" Type="nchar" MaxLength="100" />
-          <Property Name="Slug" Type="varchar" MaxLength="100" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="Avatar" Type="nchar" MaxLength="10" />
+          <Property Name="Slug" Type="varchar" MaxLength="50" />
           <Property Name="ShowOnHomePage" Type="bit" />
           <Property Name="DisplayOrder" Type="int" />
-          <Property Name="Deleter" Type="bit" />
-          <Property Name="CreatedOnUtc" Type="datetime" />
-          <Property Name="UpdatedOnUtc" Type="datetime" />
+          <Property Name="Deleted" Type="bit" />
+          <Property Name="CreatedOnUct" Type="datetime" />
+          <Property Name="UpdatedOnUct" Type="datetime" />
         </EntityType>
         <EntityType Name="Order">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Name" Type="nvarchar" MaxLength="100" />
-          <Property Name="Productid" Type="int" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="Productld" Type="int" />
           <Property Name="Price" Type="float" />
           <Property Name="Status" Type="int" />
-          <Property Name="CreatedOnUtc" Type="datetime" />
+          <Property Name="CreatedOnUct" Type="datetime" />
         </EntityType>
-        <EntityType Name="products">
+        <EntityType Name="Product">
           <Key>
-            <PropertyRef Name="id" />
+            <PropertyRef Name="Id" />
           </Key>
-          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Name" Type="nvarchar" MaxLength="100" />
-          <Property Name="Avartar" Type="nchar" MaxLength="100" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="Avatar" Type="nchar" MaxLength="100" />
           <Property Name="CategoryId" Type="int" />
-          <Property Name="ShortDes" Type="nvarchar" MaxLength="100" />
-          <Property Name="FullDescription" Type="nvarchar" MaxLength="500" />
+          <Property Name="ShortDes" Type="nvarchar" MaxLength="50" />
+          <Property Name="FullDescriotion" Type="nvarchar" MaxLength="50" />
           <Property Name="Price" Type="float" />
           <Property Name="PriceDiscount" Type="float" />
           <Property Name="TypeId" Type="int" />
@@ -64,8 +62,8 @@ warning 6002: The table/view 'WebBanHang.dbo.Brand' does not have a primary key 
           <Property Name="Deleted" Type="bit" />
           <Property Name="ShowOnHomePage" Type="bit" />
           <Property Name="DisplayOrder" Type="int" />
-          <Property Name="CreatedOnUtc" Type="datetime" />
-          <Property Name="UpdatedOnUtc" Type="datetime" />
+          <Property Name="CreatedOnUct" Type="datetime" />
+          <Property Name="UpdatedOnUct" Type="datetime" />
         </EntityType>
         <EntityType Name="Users">
           <Key>
@@ -78,65 +76,67 @@ warning 6002: The table/view 'WebBanHang.dbo.Brand' does not have a primary key 
           <Property Name="Password" Type="varchar" MaxLength="50" />
           <Property Name="IsAdmin" Type="bit" />
         </EntityType>
-        <EntityContainer Name="WebBanHangModelStoreContainer">
+        <EntityContainer Name="webBanhangModelStoreContainer">
+          <EntitySet Name="Brand" EntityType="Self.Brand" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Category" EntityType="Self.Category" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Order" EntityType="Self.Order" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="products" EntityType="Self.products" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Product" EntityType="Self.Product" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Brand" EntityType="Self.Brand" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-    [Brand].[Id] AS [Id], 
-    [Brand].[Name] AS [Name], 
-    [Brand].[Avatar] AS [Avatar], 
-    [Brand].[Slug] AS [Slug], 
-    [Brand].[ShowOnHomePage] AS [ShowOnHomePage], 
-    [Brand].[DisplayOrder] AS [DisplayOrder], 
-    [Brand].[CreatedOnUtc] AS [CreatedOnUtc], 
-    [Brand].[UpdatedOnUtc] AS [UpdatedOnUtc], 
-    [Brand].[Deleted] AS [Deleted]
-    FROM [dbo].[Brand] AS [Brand]</DefiningQuery>
-          </EntitySet>
         </EntityContainer>
       </Schema>
     </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="WebBanHangModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="webBanhangModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Brand">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Avatar" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Slug" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ShowOnHomePage" Type="Boolean" />
+          <Property Name="DiscplayOrder" Type="Int32" />
+          <Property Name="CreatedOnUct" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedOnUct" Type="DateTime" Precision="3" />
+          <Property Name="Deleted" Type="Boolean" />
+        </EntityType>
         <EntityType Name="Category">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="Avartar" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
-          <Property Name="Slug" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Avatar" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Slug" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="ShowOnHomePage" Type="Boolean" />
           <Property Name="DisplayOrder" Type="Int32" />
-          <Property Name="Deleter" Type="Boolean" />
-          <Property Name="CreatedOnUtc" Type="DateTime" Precision="3" />
-          <Property Name="UpdatedOnUtc" Type="DateTime" Precision="3" />
+          <Property Name="Deleted" Type="Boolean" />
+          <Property Name="CreatedOnUct" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedOnUct" Type="DateTime" Precision="3" />
         </EntityType>
         <EntityType Name="Order">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="Productid" Type="Int32" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Productld" Type="Int32" />
           <Property Name="Price" Type="Double" />
           <Property Name="Status" Type="Int32" />
-          <Property Name="CreatedOnUtc" Type="DateTime" Precision="3" />
+          <Property Name="CreatedOnUct" Type="DateTime" Precision="3" />
         </EntityType>
-        <EntityType Name="product">
+        <EntityType Name="Product">
           <Key>
-            <PropertyRef Name="id" />
+            <PropertyRef Name="Id" />
           </Key>
-          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="Avartar" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Avatar" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
           <Property Name="CategoryId" Type="Int32" />
-          <Property Name="ShortDes" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="FullDescription" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="ShortDes" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FullDescriotion" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Price" Type="Double" />
           <Property Name="PriceDiscount" Type="Double" />
           <Property Name="TypeId" Type="Int32" />
@@ -145,8 +145,8 @@ warning 6002: The table/view 'WebBanHang.dbo.Brand' does not have a primary key 
           <Property Name="Deleted" Type="Boolean" />
           <Property Name="ShowOnHomePage" Type="Boolean" />
           <Property Name="DisplayOrder" Type="Int32" />
-          <Property Name="CreatedOnUtc" Type="DateTime" Precision="3" />
-          <Property Name="UpdatedOnUtc" Type="DateTime" Precision="3" />
+          <Property Name="CreatedOnUct" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedOnUct" Type="DateTime" Precision="3" />
         </EntityType>
         <EntityType Name="User">
           <Key>
@@ -159,69 +159,70 @@ warning 6002: The table/view 'WebBanHang.dbo.Brand' does not have a primary key 
           <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="IsAdmin" Type="Boolean" />
         </EntityType>
-        <EntityType Name="Brand">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="Avatar" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="Slug" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="ShowOnHomePage" Type="Boolean" />
-          <Property Name="DisplayOrder" Type="Int32" />
-          <Property Name="CreatedOnUtc" Type="DateTime" Precision="3" />
-          <Property Name="UpdatedOnUtc" Type="DateTime" Precision="3" />
-          <Property Name="Deleted" Type="Boolean" />
-        </EntityType>
-        <EntityContainer Name="WebBanHangEntities1" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="webBanhangEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Brands" EntityType="Self.Brand" />
           <EntitySet Name="Categories" EntityType="Self.Category" />
           <EntitySet Name="Orders" EntityType="Self.Order" />
-          <EntitySet Name="products" EntityType="Self.product" />
+          <EntitySet Name="Products" EntityType="Self.Product" />
           <EntitySet Name="Users" EntityType="Self.User" />
-          <EntitySet Name="Brands" EntityType="Self.Brand" />
         </EntityContainer>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="WebBanHangModelStoreContainer" CdmEntityContainer="WebBanHangEntities1">
+        <EntityContainerMapping StorageEntityContainer="webBanhangModelStoreContainer" CdmEntityContainer="webBanhangEntities">
+          <EntitySetMapping Name="Brands">
+            <EntityTypeMapping TypeName="webBanhangModel.Brand">
+              <MappingFragment StoreEntitySet="Brand">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Avatar" ColumnName="Avatar" />
+                <ScalarProperty Name="Slug" ColumnName="Slug" />
+                <ScalarProperty Name="ShowOnHomePage" ColumnName="ShowOnHomePage" />
+                <ScalarProperty Name="DiscplayOrder" ColumnName="DiscplayOrder" />
+                <ScalarProperty Name="CreatedOnUct" ColumnName="CreatedOnUct" />
+                <ScalarProperty Name="UpdatedOnUct" ColumnName="UpdatedOnUct" />
+                <ScalarProperty Name="Deleted" ColumnName="Deleted" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="Categories">
-            <EntityTypeMapping TypeName="WebBanHangModel.Category">
+            <EntityTypeMapping TypeName="webBanhangModel.Category">
               <MappingFragment StoreEntitySet="Category">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="Avartar" ColumnName="Avartar" />
+                <ScalarProperty Name="Avatar" ColumnName="Avatar" />
                 <ScalarProperty Name="Slug" ColumnName="Slug" />
                 <ScalarProperty Name="ShowOnHomePage" ColumnName="ShowOnHomePage" />
                 <ScalarProperty Name="DisplayOrder" ColumnName="DisplayOrder" />
-                <ScalarProperty Name="Deleter" ColumnName="Deleter" />
-                <ScalarProperty Name="CreatedOnUtc" ColumnName="CreatedOnUtc" />
-                <ScalarProperty Name="UpdatedOnUtc" ColumnName="UpdatedOnUtc" />
+                <ScalarProperty Name="Deleted" ColumnName="Deleted" />
+                <ScalarProperty Name="CreatedOnUct" ColumnName="CreatedOnUct" />
+                <ScalarProperty Name="UpdatedOnUct" ColumnName="UpdatedOnUct" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Orders">
-            <EntityTypeMapping TypeName="WebBanHangModel.Order">
+            <EntityTypeMapping TypeName="webBanhangModel.Order">
               <MappingFragment StoreEntitySet="Order">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="Productid" ColumnName="Productid" />
+                <ScalarProperty Name="Productld" ColumnName="Productld" />
                 <ScalarProperty Name="Price" ColumnName="Price" />
                 <ScalarProperty Name="Status" ColumnName="Status" />
-                <ScalarProperty Name="CreatedOnUtc" ColumnName="CreatedOnUtc" />
+                <ScalarProperty Name="CreatedOnUct" ColumnName="CreatedOnUct" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="products">
-            <EntityTypeMapping TypeName="WebBanHangModel.product">
-              <MappingFragment StoreEntitySet="products">
-                <ScalarProperty Name="id" ColumnName="id" />
+          <EntitySetMapping Name="Products">
+            <EntityTypeMapping TypeName="webBanhangModel.Product">
+              <MappingFragment StoreEntitySet="Product">
+                <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="Avartar" ColumnName="Avartar" />
+                <ScalarProperty Name="Avatar" ColumnName="Avatar" />
                 <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
                 <ScalarProperty Name="ShortDes" ColumnName="ShortDes" />
-                <ScalarProperty Name="FullDescription" ColumnName="FullDescription" />
+                <ScalarProperty Name="FullDescriotion" ColumnName="FullDescriotion" />
                 <ScalarProperty Name="Price" ColumnName="Price" />
                 <ScalarProperty Name="PriceDiscount" ColumnName="PriceDiscount" />
                 <ScalarProperty Name="TypeId" ColumnName="TypeId" />
@@ -230,13 +231,13 @@ warning 6002: The table/view 'WebBanHang.dbo.Brand' does not have a primary key 
                 <ScalarProperty Name="Deleted" ColumnName="Deleted" />
                 <ScalarProperty Name="ShowOnHomePage" ColumnName="ShowOnHomePage" />
                 <ScalarProperty Name="DisplayOrder" ColumnName="DisplayOrder" />
-                <ScalarProperty Name="CreatedOnUtc" ColumnName="CreatedOnUtc" />
-                <ScalarProperty Name="UpdatedOnUtc" ColumnName="UpdatedOnUtc" />
+                <ScalarProperty Name="CreatedOnUct" ColumnName="CreatedOnUct" />
+                <ScalarProperty Name="UpdatedOnUct" ColumnName="UpdatedOnUct" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Users">
-            <EntityTypeMapping TypeName="WebBanHangModel.User">
+            <EntityTypeMapping TypeName="webBanhangModel.User">
               <MappingFragment StoreEntitySet="Users">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="FirstName" ColumnName="FirstName" />
@@ -244,21 +245,6 @@ warning 6002: The table/view 'WebBanHang.dbo.Brand' does not have a primary key 
                 <ScalarProperty Name="Email" ColumnName="Email" />
                 <ScalarProperty Name="Password" ColumnName="Password" />
                 <ScalarProperty Name="IsAdmin" ColumnName="IsAdmin" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Brands">
-            <EntityTypeMapping TypeName="WebBanHangModel.Brand">
-              <MappingFragment StoreEntitySet="Brand">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="Avatar" ColumnName="Avatar" />
-                <ScalarProperty Name="Slug" ColumnName="Slug" />
-                <ScalarProperty Name="ShowOnHomePage" ColumnName="ShowOnHomePage" />
-                <ScalarProperty Name="DisplayOrder" ColumnName="DisplayOrder" />
-                <ScalarProperty Name="CreatedOnUtc" ColumnName="CreatedOnUtc" />
-                <ScalarProperty Name="UpdatedOnUtc" ColumnName="UpdatedOnUtc" />
-                <ScalarProperty Name="Deleted" ColumnName="Deleted" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

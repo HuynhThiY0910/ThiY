@@ -1,4 +1,4 @@
-﻿@model List< HuynhThiY.Context.Category>
+﻿@model List<HuynhThiY.Context.Category>
 
 @{
     ViewBag.Title = "Category";
@@ -10,21 +10,21 @@
     <div class="container">
 
         <nav class="row">
+
             @foreach (var item in Model)
             {
                 <div class="col-md-3">
+
                     <div class="card card-category">
-                        <a href="#" class="img-wrap" style="background: #dee4ff">
-                            <img src="~/Content/images/items/@item.Avartar">
-                        </a>
+                        <div class="img-wrap" style="background: #ffd7d7">
+                            <img src="~/Content/images/items/1.jpg">
+                        </div>
                         <div class="card-body">
                             <h4 class="card-title"><a href="#">@item.Name</a></h4>
-                         
                         </div>
                     </div>
                 </div> <!-- col.// -->
             }
-
         </nav> <!-- row.// -->
 
 

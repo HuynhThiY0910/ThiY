@@ -1,9 +1,37 @@
-﻿@model HuynhThiY.Context.product
+﻿@model HuynhThiY.Context.Product
 
 @{
     ViewBag.Title = "Index";
 }
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
 
+<script type="text/javascript">
+    $(function () {
+        $("#addtocart").click(function () {
+            var model = {};
+            //lấy id sản phẩm
+            model.Id = @Model.Id;
+            // lấy số lượng đặt hàng
+            model.Quantity = $("#ipQuantity").val();
+            debugger;
+            $.ajax({
+                type: "POST",
+                url: '@Url.Action("AddToCart", "Cart")',
+                data:  JSON.stringify(model) ,
+                dataType: "json",
+                contentType: "application/json; charset=utf-8",
+                success: function () {
+                    alert("Thêm giỏ hàng thành công!")
+                    $('#CartCount').text(@Session["count"] + 1);
+                },
+                error: function () {
+                    alert("Lỗi trong khi thêm vào giỏ hàng!");
+                }
+            });
+            return false;
+        });
+    });
+</script>
 
 
 <section class="py-3 bg-light">
@@ -27,7 +55,7 @@
                 <div class="card">
                     <article class="gallery-wrap">
                         <div class="img-big-wrap">
-                            <div> <a href="#"><img src="~/Content/images/items/@Model.Avartar"></a></div>
+                            <div> <a href="#"><img src="~/Content/images/items/15.jpg"></a></div>
                         </div> <!-- slider-product.// -->
                         <div class="thumbs-wrap">
                             <a href="#" class="item-thumb"> <img src="~/Content/images/items/15.jpg"></a>
@@ -87,27 +115,19 @@
                         <dd class="col-sm-9">in Stock</dd>
                     </dl>
 
-                    <div class="form-row  mt-4">
+                    <div class="form-row mt-4">
                         <div class="form-group col-md flex-grow-0">
-                            <div class="input-group mb-3 input-spinner">
-                                <div class="input-group-prepend">
-                                    <button class="btn btn-light" type="button" id="button-plus"> + </button>
-                                </div>
-                                <input type="text" class="form-control" value="1">
-                                <div class="input-group-append">
-                                    <button class="btn btn-light" type="button" id="button-minus"> &minus; </button>
-                                </div>
+                            <div class=" form-group mb-3 input-spinner">
+                                <input type="text" id="ipQuantity" class="form-control" value="1">
                             </div>
                         </div> <!-- col.// -->
                         <div class="form-group col-md">
-                            <a href="#" class="btn  btn-primary">
-                                <i class="fas fa-shopping-cart"></i> <span class="text">Add to cart</span>
-                            </a>
-                            <a href="#" class="btn btn-light">
-                                <i class="fas fa-envelope"></i> <span class="text">Contact supplier</span>
+                            <a href="#" id="addtocart" class="btn btn-primary">
+                                <i class="fas fa-shopping-cart"> </i>
+                                <span class="text" h>Thêm vào giỏ hàng</span>
                             </a>
                         </div> <!-- col.// -->
-                    </div> <!-- row.// -->
+                    </div></> <!-- row.// -->
 
                 </article> <!-- product-info-aside .// -->
             </main> <!-- col.// -->
@@ -123,7 +143,7 @@
         <div class="row">
             <div class="col-md-8">
                 <h5 class="title-description">Description</h5>
-                @Model.FullDescription
+                @Model.FullDescriotion
             </div> <!-- col.// -->
 
             <aside class="col-md-4">

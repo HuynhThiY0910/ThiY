@@ -16,9 +16,9 @@ namespace HuynhThiY.Context
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        public Nullable<int> Productid { get; set; }
+        public Nullable<int> Productld { get; set; }
         public Nullable<double> Price { get; set; }
         public Nullable<int> Status { get; set; }
-        public Nullable<System.DateTime> CreatedOnUtc { get; set; }
+        public Nullable<System.DateTime> CreatedOnUct { get; set; }
     }
 }
