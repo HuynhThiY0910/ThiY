@@ -1,0 +1,530 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+
+<section class="section-content padding-y">
+    <div class="container">
+
+
+        <!-- ============================  FILTER TOP  ================================= -->
+        <div class="card mb-3">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-2"> Bạn đang ở đây: </div> <!-- col.// -->
+                    <nav class="col-md-8">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="#">Trang chủ</a></li>
+                            <li class="breadcrumb-item"><a href="#">Tên thể loại</a></li>
+                            <li class="breadcrumb-item"><a href="#">Danh mục phụ</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Items</li>
+                        </ol>
+                    </nav> <!-- col.// -->
+                </div> <!-- row.// -->
+                <hr>
+                <div class="row">
+                    <div class="col-md-2">Lọc theo</div> <!-- col.// -->
+                    <div class="col-md-10">
+                        <ul class="list-inline">
+                            <li class="list-inline-item mr-3 dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">   Loại nhà cung cấp </a>
+                                <div class="dropdown-menu p-3" style="max-width:400px;">
+                                    <label class="form-check">
+                                        <input type="radio" name="myfilter" class="form-check-input"> Nhà cung cấp tốt
+                                    </label>
+                                    <label class="form-check">
+                                        <input type="radio" name="myfilter" class="form-check-input"> Nhà cung cấp tốt nhất
+                                    </label>
+                                    <label class="form-check">
+                                        <input type="radio" name="myfilter" class="form-check-input"> Nhà cung cấp mới
+                                    </label>
+                                </div> <!-- dropdown-menu.// -->
+                            </li>
+                            <li class="list-inline-item mr-3 dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">  Quốc gia </a>
+                                <div class="dropdown-menu p-3">
+                                    <label class="form-check"> 	 <input type="checkbox" class="form-check-input"> Trung Quốc    </label>
+                                    <label class="form-check">   	 <input type="checkbox" class="form-check-input"> Nhật Bản      </label>
+                                    <label class="form-check">    <input type="checkbox" class="form-check-input"> Uzbekistan  </label>
+                                    <label class="form-check">  <input type="checkbox" class="form-check-input"> Nga     </label>
+                                </div> <!-- dropdown-menu.// -->
+                            </li>
+                            <li class="list-inline-item mr-3 dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Feature</a>
+                                <div class="dropdown-menu">
+                                    <a href="" class="dropdown-item">Chống quay ngược</a>
+                                    <a href="" class="dropdown-item"> có nút</a>
+                                    <a href="" class="dropdown-item">An toàn hơn</a>
+                                </div>
+                            </li>
+                            <li class="list-inline-item mr-3"><a href="#">Màu sắc</a></li>
+                            <li class="list-inline-item mr-3"><a href="#">Kích thướt</a></li>
+                            <li class="list-inline-item mr-3">
+                                <div class="form-inline">
+                                    <label class="mr-2">Giá</label>
+                                    <input class="form-control form-control-sm" placeholder="Min" type="number">
+                                    <span class="px-2"> - </span>
+                                    <input class="form-control form-control-sm" placeholder="Max" type="number">
+                                    <button type="submit" class="btn btn-sm btn-light ml-2">Ok</button>
+                                </div>
+                            </li>
+                            <li class="list-inline-item mr-3">
+                                <label class="custom-control mt-1 custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input">
+                                    <div class="custom-control-label">
+                                       Sẵn sàng chuyển hàng
+                                    </div>
+                                </label>
+                            </li>
+                        </ul>
+                    </div> <!-- col.// -->
+                </div> <!-- row.// -->
+            </div> <!-- card-body .// -->
+        </div> <!-- card.// -->
+        <!-- ============================ FILTER TOP END.// ================================= -->
+
+        <header class="mb-3">
+            <div class="form-inline">
+                <strong class="mr-md-auto">32 Vật phẩm được tìm thấy </strong>
+                <select class="mr-2 form-control">
+                    <option>Mục mới nhất</option>
+                    <option>Xu hướng</option>
+                    <option>Phổ biến nhất</option>
+                    <option>Rẻ tiền</option>
+                </select>
+                <div class="btn-group">
+                    <a href="page-listing-grid.html" class="btn btn-light active" data-toggle="tooltip" title="List view">
+                        <i class="fa fa-bars"></i>
+                    </a>
+                    <a href="page-listing-large.html" class="btn btn-light" data-toggle="tooltip" title="Grid view">
+                        <i class="fa fa-th"></i>
+                    </a>
+                </div>
+            </div>
+        </header><!-- sect-heading -->
+
+        <div class="row">
+            <div class="col-md-3">
+                <figure class="card card-product-grid">
+                    <div class="img-wrap">
+                        <span class="badge badge-danger"> Mới </span>
+                        <img src="~/Content/images/items/apple.jpg">
+                    </div> <!-- img-wrap.// -->
+                    <figcaption class="info-wrap">
+                        <a href="#" class="title mb-2">Một điểm đặc biệt của Apple là họ luôn tập trung
+                        vào trải nghiệm người dùng và sự đổi mới.</a>
+                        <div class="price-wrap">
+                            <span class="price">$32.00-$40.00</span>
+                            <small class="text-muted">/mỗi mặt hàng</small>
+                        </div> <!-- price-wrap.// -->
+
+                        <p class="mb-2"> 2 cái <small class="text-muted">(Thứ tự tối thiểu)</small></p>
+
+                        <p class="text-muted ">Apple</p>
+
+                        <hr>
+
+                        <p class="mb-3">
+                            <span class="tag"> <i class="fa fa-check"></i> Xác minh</span>
+                            <span class="tag"> 2 Năm </span>
+                            <span class="tag"> 23 Đánh giá </span>
+                            <span class="tag"> Nhật Bản </span>
+                        </p>
+
+                        <label class="custom-control mb-3 custom-checkbox">
+                            <input type="checkbox" class="custom-control-input">
+                            <div class="custom-control-label">
+                                Thêm vào để so sánh
+                            </div>
+                        </label>
+
+                        <a href="#" class="btn btn-outline-primary"> <i class="fa fa-envelope"></i> Liên hệ với nhà cung cấp </a>
+
+                    </figcaption>
+                </figure>
+            </div> <!-- col.// -->
+
+            <div class="col-md-3">
+                <figure class="card card-product-grid">
+                    <div class="img-wrap">
+                        <img src="~/Content/images/items/Samsung.jpg">
+                    </div> <!-- img-wrap.// -->
+                    <figcaption class="info-wrap">
+                        <a href="#" class="title mb-2">Với thiết kế đẹp và tính năng thông minh,
+                        iPhone đã trở thành một trong những sản phẩm được ưa chuộng nhất 
+                        trên thị trường điện thoại thông minh. </a>
+                        <div class="price-wrap">
+                            <span class="price">$50.00-$75.00</span>
+                            <small class="text-muted">/mỗi mặt hàng</small>
+                        </div> <!-- price-wrap.// -->
+
+                        <p class="mb-2"> 4 cái  <small class="text-muted">(Thứ tự tối thiểu)</small></p>
+
+                        <p class="text-muted ">Samsung.</p>
+
+                        <hr>
+
+                        <p class="mb-3">
+                            <span class="tag"> <i class="fa fa-check"></i> Xác minh</span>
+                            <span class="tag"> 3 năm </span>
+                            <span class="tag"> 70 Đánh giá </span>
+                            <span class="tag"> Nga </span>
+                        </p>
+
+                        <label class="custom-control mb-3 custom-checkbox">
+                            <input type="checkbox" class="custom-control-input">
+                            <div class="custom-control-label">
+                                Thêm vào để so sánh
+                            </div>
+                        </label>
+
+                        <a href="#" class="btn btn-outline-primary"> <i class="fa fa-envelope"></i> Liên hệ với nhà cung cấp </a>
+
+                    </figcaption>
+                </figure>
+            </div> <!-- col.// -->
+
+            <div class="col-md-3">
+                <figure class="card card-product-grid">
+                    <div class="img-wrap">
+                        <img src="~/Content/images/items/xiomi1.jpg">
+                    </div> <!-- img-wrap.// -->
+                    <figcaption class="info-wrap">
+                        <a href="#" class="title mb-2">Với lịch sử lâu đời trên 80 năm và sự phát triển không ngừng,
+                        Samsung đã trở thành một trong những hãng điện thoại lớn nhất thế giới và đóng vai trò quan
+                        trọng trong ngành công nghiệp điện tử.</a>
+                        <div class="price-wrap">
+                            <span class="price">$425.00-$490.00</span>
+                            <small class="text-muted">/Mỗi chiếc</small>
+                        </div> <!-- price-wrap.// -->
+
+                        <p class="mb-2"> 2 cái <small class="text-muted">(Thứ tự tối thiểu)</small></p>
+
+                        <p class="text-muted ">Xiomi.</p>
+
+                        <hr>
+
+                        <p class="mb-3">
+                            <span class="tag"> <i class="fa fa-check"></i> Xác minh</span>
+                            <span class="tag"> 7 Năm </span>
+                            <span class="tag"> 34 Đánh giá </span>
+                            <span class="tag"> Nga </span>
+                        </p>
+
+                        <label class="custom-control mb-3 custom-checkbox">
+                            <input type="checkbox" class="custom-control-input">
+                            <div class="custom-control-label">
+                                Thêm vào để so sánh
+                            </div>
+                        </label>
+
+                        <a href="#" class="btn btn-outline-primary"> <i class="fa fa-envelope"></i> Liên hệ với nhà cung cấp </a>
+
+                    </figcaption>
+                </figure>
+            </div> <!-- col.// -->
+
+            <div class="col-md-3">
+                <figure class="card card-product-grid">
+                    <div class="img-wrap">
+                        <img src="~/Content/images/items/xiaomi.jpg">
+                    </div> <!-- img-wrap.// -->
+                    <figcaption class="info-wrap">
+                        <a href="#" class="title mb-2">. Những chiếc điện thoại của Xiaomi thường
+                        có tính năng cao và được trang bị các công nghệ tiên tiến, 
+                        giúp cung cấp trải nghiệm người dùng tốt nhất có thể. </a>
+                        <div class="price-wrap">
+                            <span class="price">$325.00-$390.00</span>
+                            <small class="text-muted">/mỗi chiếc</small>
+                        </div> <!-- price-wrap.// -->
+
+                        <p class="mb-2"> 2 cái  <small class="text-muted">(Thứ tự tối thiểu)</small></p>
+
+                        <p class="text-muted ">Oppo</p>
+
+                        <hr>
+
+                        <p class="mb-3">
+                            <span class="tag"> <i class="fa fa-check"></i>Xác minh</span>
+                            <span class="tag"> 4 Năm </span>
+                            <span class="tag"> 60 Đánh giá </span>
+                            <span class="tag"> Trung quốc </span>
+                        </p>
+
+                        <label class="custom-control mb-3 custom-checkbox">
+                            <input type="checkbox" class="custom-control-input">
+                            <div class="custom-control-label">
+                                Thêm vào để so sánh
+                            </div>
+                        </label>
+
+                        <a href="#" class="btn btn-outline-primary"> <i class="fa fa-envelope"></i> Liên hệ với nhà cung cấp </a>
+
+                    </figcaption>
+                </figure>
+            </div> <!-- col.// -->
+
+            <div class="col-md-3">
+                <figure class="card card-product-grid">
+                    <div class="img-wrap">
+                        <img src="~/Content/images//items/oppo.jpg">
+                    </div> <!-- img-wrap.// -->
+                    <figcaption class="info-wrap">
+                        <a href="#" class="title mb-2">Oppo là một hãng điện thoại Trung Quốc được thành lập vào năm 2004,
+                        chuyên sản xuất các sản phẩm điện tử, trong đó điện thoại thông minh là sản phẩm chính của họ.</a>
+                        <div class="price-wrap">
+                            <span class="price">$325.00-$390.00</span>
+                            <small class="text-muted">/mỗi chiếc</small>
+                        </div> <!-- price-wrap.// -->
+
+                        <p class="mb-2"> 2 cái  <small class="text-muted">(Thứ tự tối thiểu)</small></p>
+
+                        <p class="text-muted ">Huawei</p>
+
+                        <hr>
+
+                        <p class="mb-3">
+                            <span class="tag"> <i class="fa fa-check"></i> Xác minh</span>
+                            <span class="tag"> 4 năm </span>
+                            <span class="tag"> 60 Đánh giá </span>
+                            <span class="tag"> Trung quốc </span>
+                        </p>
+
+                        <label class="custom-control mb-3 custom-checkbox">
+                            <input type="checkbox" class="custom-control-input">
+                            <div class="custom-control-label">
+                                Thêm vào để so sánh
+                            </div>
+                        </label>
+
+                        <a href="#" class="btn btn-outline-primary"> <i class="fa fa-envelope"></i>Liên hệ với nhà cung cấp </a>
+
+                    </figcaption>
+                </figure>
+            </div> <!-- col.// -->
+
+            <div class="col-md-3">
+                <figure class="card card-product-grid">
+                    <div class="img-wrap">
+                        <img src="~/Content/images/items/huawei.jpg">
+                    </div> <!-- img-wrap.// -->
+                    <figcaption class="info-wrap">
+                        <a href="#" class="title mb-2">Huawei là một trong những thương hiệu điện thoại hàng đầu của Trung Quốc và trên toàn thế giới.</a>
+                        <div class="price-wrap">
+                            <span class="price">$325.00-$390.00</span>
+                            <small class="text-muted">/Mỗi chiếc</small>
+                        </div> <!-- price-wrap.// -->
+
+                        <p class="mb-2"> 2 cái  <small class="text-muted">(Thứ tự tối thiểu)</small></p>
+
+                        <p class="text-muted ">Vivo</p>
+
+                        <hr>
+
+                        <p class="mb-3">
+                            <span class="tag"> <i class="fa fa-check"></i> Xác minh</span>
+                            <span class="tag"> 4 Năm </span>
+                            <span class="tag"> 60 Đánh giá </span>
+                            <span class="tag"> Trung quốc </span>
+                        </p>
+
+                        <label class="custom-control mb-3 custom-checkbox">
+                            <input type="checkbox" class="custom-control-input">
+                            <div class="custom-control-label">
+                                Thêm vào để so sánh
+                            </div>
+                        </label>
+
+                        <a href="#" class="btn btn-outline-primary"> <i class="fa fa-envelope"></i> Liên hệ với nhà cung cấp </a>
+
+                    </figcaption>
+                </figure>
+            </div> <!-- col.// -->
+
+            <div class="col-md-3">
+                <figure class="card card-product-grid">
+                    <div class="img-wrap">
+                        <img src="~/Content/images/items/vivo.jpg">
+                    </div> <!-- img-wrap.// -->
+                    <figcaption class="info-wrap">
+                        <a href="#" class="title mb-2">ViVo là một hãng điện thoại Trung Quốc được thành
+                        lập vào năm 2009 và là một trong những hãng điện thoại được yêu thích nhất tại Trung Quốc.</a>
+                        <div class="price-wrap">
+                            <span class="price">$325.00-$390.00</span>
+                            <small class="text-muted">/Mỗi chiếc</small>
+                        </div> <!-- price-wrap.// -->
+
+                        <p class="mb-2"> 2 cái  <small class="text-muted">(Thứ tự tối thiểu)</small></p>
+
+                        <p class="text-muted ">Realme</p>
+
+                        <hr>
+
+                        <p class="mb-3">
+                            <span class="tag"> <i class="fa fa-check"></i> Xác minh</span>
+                            <span class="tag"> 4 năm </span>
+                            <span class="tag"> 60 Đánh giá </span>
+                            <span class="tag"> Trung quốc </span>
+                        </p>
+
+                        <label class="custom-control mb-3 custom-checkbox">
+                            <input type="checkbox" class="custom-control-input">
+                            <div class="custom-control-label">
+                                Thêm vào để so sánh
+                            </div>
+                        </label>
+
+                        <a href="#" class="btn btn-outline-primary"> <i class="fa fa-envelope"></i> Liên hệ với nhà cung cấp </a>
+
+                    </figcaption>
+                </figure>
+            </div> <!-- col.// -->
+
+            <div class="col-md-3">
+                <figure class="card card-product-grid">
+                    <div class="img-wrap">
+                        <img src="~/Content/images//items/realme.jpg">
+                    </div> <!-- img-wrap.// -->
+                    <figcaption class="info-wrap">
+                        <a href="#" class="title mb-2">Realme có một danh mục sản phẩm rộng, bao gồm 
+                        các smartphone tầm trung và cao cấp với nhiều tính năng và thiết kế đa dạng,
+                        nhưng giá cả vẫn khá hấp dẫn. </a>
+                        <div class="price-wrap">
+                            <span class="price">$325.00-$390.00</span>
+                            <small class="text-muted">/mỗi chiếc</small>
+                        </div> <!-- price-wrap.// -->
+
+                        <p class="mb-2"> 2 cái  <small class="text-muted">(Thứ tự tối thiểu)</small></p>
+
+                        <p class="text-muted ">Sony</p>
+
+                        <hr>
+
+                        <p class="mb-3">
+                            <span class="tag"> <i class="fa fa-check"></i> Xác minh</span>
+                            <span class="tag"> 4 năm </span>
+                            <span class="tag"> 60 Đánh giá </span>
+                            <span class="tag"> Trung quốc </span>
+                        </p>
+
+                        <label class="custom-control mb-3 custom-checkbox">
+                            <input type="checkbox" class="custom-control-input">
+                            <div class="custom-control-label">
+                                Thêm vào để so sánh
+                            </div>
+                        </label>
+
+                        <a href="#" class="btn btn-outline-primary"> <i class="fa fa-envelope"></i>  Liên hệ với nhà cung cấp </a>
+
+                    </figcaption>
+                </figure>
+            </div> <!-- col.// -->
+
+            <div class="col-md-3">
+                <figure class="card card-product-grid">
+                    <div class="img-wrap">
+                        <span class="badge badge-danger"> Mới </span>
+                        <img src="~/Content/images//items/sony.jpg">
+                    </div> <!-- img-wrap.// -->
+                    <figcaption class="info-wrap">
+                        <a href="#" class="title mb-2">Sony là một trong những hãng sản xuất điện thoại di động hàng đầu của Nhật Bản.</a>
+                        <div class="price-wrap">
+                            <span class="price">$325.00-$390.00</span>
+                            <small class="text-muted">/mỗi chiếc</small>
+                        </div> <!-- price-wrap.// -->
+
+                        <p class="mb-2"> 2 cái  <small class="text-muted">(Thứ tự tối thiểu)</small></p>
+
+                        <p class="text-muted ">Lenovo</p>
+
+                        <hr>
+
+                        <p class="mb-3">
+                            <span class="tag"> <i class="fa fa-check"></i> Xác minh</span>
+                            <span class="tag"> 4 Năm </span>
+                            <span class="tag"> 60 Đánh giá </span>
+                            <span class="tag"> Trung quốc </span>
+                        </p>
+
+                        <label class="custom-control mb-3 custom-checkbox">
+                            <input type="checkbox" class="custom-control-input">
+                            <div class="custom-control-label">
+                                Thêm vào để so sánh
+                            </div>
+                        </label>
+
+                        <a href="#" class="btn btn-outline-primary"> <i class="fa fa-envelope"></i>  Liên hệ với nhà cung cấp </a>
+
+                    </figcaption>
+                </figure>
+            </div> <!-- col.// -->
+
+            <div class="col-md-3">
+                <figure class="card card-product-grid">
+                    <div class="img-wrap">
+                        <span class="badge badge-danger"> Mới </span>
+                        <img src="~/Content/images//items/lenovo.jpg">
+                    </div> <!-- img-wrap.// -->
+                    <figcaption class="info-wrap">
+                        <a href="#" class="title mb-2"> Lenovo sản xuất nhiều dòng điện thoại di động khác nhau, 
+                        bao gồm cả điện thoại thông minh và điện thoại phổ thông.</a>
+                        <div class="price-wrap">
+                            <span class="price">$325.00-$390.00</span>
+                            <small class="text-muted">/mỗi chiếc</small>
+                        </div> <!-- price-wrap.// -->
+
+                        <p class="mb-2"> 2 cái  <small class="text-muted">(Thứ tự tối thiểu)</small></p>
+
+                        <p class="text-muted ">Lenovo</p>
+
+                        <hr>
+
+                        <p class="mb-3">
+                            <span class="tag"> <i class="fa fa-check"></i> Xác minh</span>
+                            <span class="tag"> 4 Năm </span>
+                            <span class="tag"> 60 Đánh giá </span>
+                            <span class="tag"> Trung quốc </span>
+                        </p>
+
+                        <label class="custom-control mb-3 custom-checkbox">
+                            <input type="checkbox" class="custom-control-input">
+                            <div class="custom-control-label">
+                                Thêm vào để so sánh
+                            </div>
+                        </label>
+
+                        <a href="#" class="btn btn-outline-primary"> <i class="fa fa-envelope"></i>  Liên hệ với nhà cung cấp </a>
+
+                    
+
+                       
+
+                    </figcaption>
+                </figure>
+            </div> <!-- col.// -->
+        </div> <!-- row end.// -->
+
+
+        <nav class="mb-4" aria-label="Page navigation sample">
+            <ul class="pagination">
+                <li class="page-item disabled"><a class="page-link" href="#">Trước</a></li>
+                <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                <li class="page-item"><a class="page-link" href="#">4</a></li>
+                <li class="page-item"><a class="page-link" href="#">5</a></li>
+                <li class="page-item"><a class="page-link" href="#">Sau</a></li>
+            </ul>
+        </nav>
+
+
+        <div class="box text-center">
+            <p>Bạn đã tìm thấy những gì bạn đang tìm kiếm?</p>
+            <a href="" class="btn btn-light">Đúng</a>
+            <a href="" class="btn btn-light">Không</a>
+        </div>
+
+    </div> <!-- container .//  -->
+</section>
+<!-- ========================= SECTION CONTENT END// ========================= -->

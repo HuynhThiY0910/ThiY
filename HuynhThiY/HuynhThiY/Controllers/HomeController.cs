@@ -128,5 +128,10 @@ namespace HuynhThiY.Controllers
 
             return View();
         }
+        public ActionResult Sreach(String sreach,int Id= 0)
+        {
+            return View();
+        }
+
     }
 }

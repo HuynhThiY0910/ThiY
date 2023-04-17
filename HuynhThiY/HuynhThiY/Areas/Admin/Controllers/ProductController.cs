@@ -85,6 +85,58 @@ namespace HuynhThiY.Areas.Admin.Controllers
             return View(objProduct);
         }
 
+        
+
+
+        [HttpGet]
+        public ActionResult Details(int Id)
+        {
+            var objProduct = objwebBanhangEntities.Products.Where(n => n.Id == Id).FirstOrDefault();
+            return View(objProduct);
+        }
+        [HttpGet]
+        public ActionResult Delete(int Id)
+        {
+            var objProduct = objwebBanhangEntities.Products.Where(n => n.Id == Id).FirstOrDefault();
+            return View(objProduct);
+        }
+        [HttpPost]
+        public ActionResult Delete(Product objPro)
+        {
+            var objProduct = objwebBanhangEntities.Products.Where(n => n.Id == objPro.Id).FirstOrDefault();
+            objwebBanhangEntities.Products.Remove(objProduct);
+            objwebBanhangEntities.SaveChanges();
+            return RedirectToAction("Index");
+        }
+        [HttpGet]
+        public ActionResult Edit(int Id)
+        {
+            this.LoadData();
+            var objProduct = objwebBanhangEntities.Products.Where(n => n.Id == Id).FirstOrDefault();
+            return View(objProduct);
+        }
+        [HttpPost]
+        public ActionResult Edit(int Id, Product objProduct)
+        {
+            this.LoadData();
+            if (ModelState.IsValid)
+            {
+                if (objProduct.ImageUpload != null)
+                {
+                    string fileName = Path.GetFileNameWithoutExtension(objProduct.ImageUpload.FileName);
+                    string extension = Path.GetExtension(objProduct.ImageUpload.FileName);
+                    fileName = fileName + extension;
+                    objProduct.Avatar = fileName;
+                    objProduct.ImageUpload.SaveAs(Path.Combine(Server.MapPath("~/Content/images/items"), fileName));
+                }
+                objProduct.UpdatedOnUct = DateTime.UtcNow;
+                objwebBanhangEntities.Entry(objProduct).State = EntityState.Modified;
+                objwebBanhangEntities.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            return View(objProduct);
+        }
+
         void LoadData()
         {
             Common objCommon = new Common();
@@ -119,55 +171,7 @@ namespace HuynhThiY.Areas.Admin.Controllers
             ViewBag.Producttype = objCommon.ToSelectList(dtProductType, "id", "Name");
         }
 
-
-        [HttpGet]
-        public ActionResult Details(int Id)
-        {
-            var objProduct = objwebBanhangEntities.Products.Where(n => n.Id == Id).FirstOrDefault();
-            return View(objProduct);
-        }
-        [HttpGet]
-        public ActionResult Delete(int Id)
-        {
-            var objProduct = objwebBanhangEntities.Products.Where(n => n.Id == Id).FirstOrDefault();
-            return View(objProduct);
-        }
-        [HttpPost]
-        public ActionResult Delete(Product objPro)
-        {
-            var objProduct = objwebBanhangEntities.Products.Where(n => n.Id == objPro.Id).FirstOrDefault();
-            objwebBanhangEntities.Products.Remove(objProduct);
-            objwebBanhangEntities.SaveChanges();
-            return RedirectToAction("Index");
-        }
-        [HttpGet]
-        public ActionResult Edit(int Id)
-        {
-            var objProduct = objwebBanhangEntities.Products.Where(n => n.Id == Id).FirstOrDefault();
-            return View(objProduct);
-        }
-        [HttpPost]
-        public ActionResult Edit(int Id, Product objProduct)
-        {
-            if(ModelState.IsValid)
-            {
-                if (objProduct.ImageUpload != null)
-                {
-                    string fileName = Path.GetFileNameWithoutExtension(objProduct.ImageUpload.FileName);
-                    string extension = Path.GetExtension(objProduct.ImageUpload.FileName);
-                    fileName = fileName + extension;
-                    objProduct.Avatar = fileName;
-                    objProduct.ImageUpload.SaveAs(Path.Combine(Server.MapPath("~/Content/images/items"), fileName));
-                }
-                objProduct.UpdatedOnUct = DateTime.UtcNow;
-                objwebBanhangEntities.Products.Add(objProduct);
-                objwebBanhangEntities.SaveChanges();
-                return RedirectToAction("Index");
-            }
-            return View(objProduct);
-        }
-
-        }
+    }
     }
 
 

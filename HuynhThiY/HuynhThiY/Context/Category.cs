@@ -11,7 +11,8 @@ namespace HuynhThiY.Context
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations.Schema;
+
     public partial class Category
     {
         public int Id { get; set; }
@@ -23,5 +24,6 @@ namespace HuynhThiY.Context
         public Nullable<bool> Deleted { get; set; }
         public Nullable<System.DateTime> CreatedOnUct { get; set; }
         public Nullable<System.DateTime> UpdatedOnUct { get; set; }
+        
     }
 }
